@@ -30,6 +30,7 @@ class TC:
             print("Tearing down")
             time.sleep(0.1)
             self._tm.publishReport()
+            print("\n")
         else:
             print("Test not executed. No tear down required.")
 
@@ -108,17 +109,21 @@ if __name__ == '__main__':
     reporter = Reporter()
     db = DB()
     tm = TestManager()
+
     tm.setReporter(reporter)
     tm.setDB(db)
+
     reporter.setTM(tm)
     db.setTM(tm)
     # For simplification we are looping on the same test.
     # Practically, it could be about various unique test classes and their
     # objects
-    for i in range(3):
+    for _ in range(3):
         tc = TC()
         tc.setTM(tm)
+
         tm.setTC(tc)
+
         tc.setup()
         tc.execute()
         tc.tearDown()
