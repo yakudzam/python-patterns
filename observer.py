@@ -67,7 +67,6 @@ def main():
     data1.attach(view2)
     data2.attach(view2)
     data2.attach(view1)
-
     print("Setting Data 1 = 10")
     data1.data = 10
     print("Setting Data 2 = 15")

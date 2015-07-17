@@ -5,7 +5,7 @@ class Hello(object):
  
     def __new__(clz):
         if not clz.singleton:
-            clz.singleton = object.__new__(clz)
+            clz.singleton = super(Hello, clz).__new__(clz)
         return clz.singleton
  
     def __init__(self):
